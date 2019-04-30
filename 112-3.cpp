@@ -34,13 +34,12 @@ int main(void){
             while(true){
                 if(A[t].h==0){
                     t++;
-                }else{
-                    a = abs(t,x,y);
-                    if(a==0){
-                        t++;
-                    }else{
+                    if(t>=n){
                         break;
                     }
+                }else{
+                    a = abs(t,x,y);
+                    break;
                 }
             }
             for(int s=0;s<n;s++){
