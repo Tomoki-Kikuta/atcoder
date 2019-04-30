@@ -36,7 +36,11 @@ int main(void){
                     t++;
                 }else{
                     a = abs(t,x,y);
-                    break;
+                    if(a==0){
+                        t++;
+                    }else{
+                        break;
+                    }
                 }
             }
             for(int s=0;s<n;s++){
