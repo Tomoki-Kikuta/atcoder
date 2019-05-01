@@ -1,28 +1,25 @@
-#include <iostream>
+#include<iostream>
+#include<string>
+#include<algorithm>
 using namespace std;
-int main()
-{
-    int N,A;
-    cin >> N;
-    A = N;
-    int s[1000] = {0},l = 0;
-    if(N == 0){
-        cout << 0 << endl;
+int main(void){
+    string S;
+    long long K;
+    cin >> S >> K;
+    int A = 1,n;
+    if(K>S.size()){
+        n = S.size();
     }else{
-        while(A!=0){
-        int r = A % -2;
-        A /= -2;
-        if(r < 0){
-            r += 2;
-            A += 1;
+        n = K;
+    }
+    for(int i=0;i<n;i++){
+        int a = S[i] - '0';
+        //cout << a << endl;
+        if(a!=1){
+            A = a;
+            break;
         }
-        s[l] = r;
-        l++;
-    } 
-    for(int i = l-1; i >= 0; --i){
-        cout << s[i];
     }
-    cout << endl;
-    }
+    cout << A << endl;
     return 0;
 }
