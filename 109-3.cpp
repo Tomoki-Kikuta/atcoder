@@ -4,13 +4,16 @@
 #define MAX 100001
 using namespace std;
 long int gcd(long int a,long int b){
-    int temp;
-
-    if( a < b ) { temp = a; a = b; b = temp; }
-    if( b < 1 ) return -1;
-
-    if( a % b == 0 ) return b;
-    return gcd( b, a % b );
+    if(a<b){ 
+        swap(a,b);
+    }
+    if(b<1){
+        return -1;
+    }
+    if(a%b==0){
+        return b;
+    }
+    return gcd(b,a%b);
 }
 int main(void){
     int n;
