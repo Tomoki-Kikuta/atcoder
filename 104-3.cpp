@@ -20,31 +20,26 @@ void process(int i,long int score,int count){
         yn[i] = true;
         process(i+1,score,count);
     }else{
-        //cout << score << endl;
-        int t = 0,s,u;
-        bool flag = true,color = false;
+        int sum = 0,bigest_id;
+        bool flag = true;
         for(int j=D-1;j>=0;j--){
             if(!yn[j]){
-                s = j;
+                bigest_id = j;
                 break;
             }else{
-                color = true;
-                u = j;
+                yn[j] = false;
             }
         }
-        if(color){
-            yn[u] = false;
-        }
         while(score<G){
-            score += table[s].s;
-            t++;
-            if(t>table[s].p-1){
+            score += table[bigest_id].s;
+            sum++;
+            if(sum>table[bigest_id].p-1){
                 flag = false;
                 break;
             }
         }
         if(flag){
-            count += t;
+            count += sum;
             count_N.push_back(count);
         }
     }
