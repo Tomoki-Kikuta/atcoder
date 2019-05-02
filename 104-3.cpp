@@ -32,6 +32,9 @@ void process(int i,long int score,int count){
                 u = j;
             }
         }
+        if(color){
+            yn[u] = false;
+        }
         while(score<G){
             score += table[s].s;
             t++;
@@ -40,28 +43,28 @@ void process(int i,long int score,int count){
                 break;
             }
         }
-        if(color){
-            yn[u] = false;
-        }
         if(flag){
             count += t;
             count_N.push_back(count);
         }
     }
 }
+int min(void){
+    int min = INF;
+    for(int i=0;i<count_N.size();i++){
+        if(min>count_N[i]){
+            min = count_N[i];
+        }
+    }
+    return min;
+}
 int main(void){
-    int sum = INF;
     cin >> D >> G;
     for(int i=0;i<D;i++){
         cin >> table[i].p >> table[i].c;
         table[i].s = 100 * (i+1);
     }
     process(0,0,0);
-    for(int i=0;i<count_N.size();i++){
-        if(sum>count_N[i]){
-            sum = count_N[i];
-        }
-    }
-    cout << sum << endl;
+    cout << min() << endl;
     return 0;
 }
