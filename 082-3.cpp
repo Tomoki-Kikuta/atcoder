@@ -9,13 +9,13 @@ int main(void){
     for(int i=0;i<N;i++){
         long int a;
         cin >> a;
-        if(a>=MAX){
+        if(a>N){
             count++;
         }else{
             A[a]++;
         }
     }
-    for(int i=1;i<MAX;i++){
+    for(int i=1;i<=N;i++){
         //cout << i << ' ' << A[i] << endl;
         if(A[i]<i){
             count += A[i];
