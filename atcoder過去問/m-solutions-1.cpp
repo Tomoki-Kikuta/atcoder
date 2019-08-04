@@ -1,0 +1,9 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+int main(void){
+    int N;
+    cin >> N;
+    cout << 180 * (N-2) << endl;
+    return 0;
+}
