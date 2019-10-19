@@ -13,6 +13,8 @@ def main():
         a, b, c = map(int, input().split())
         a -= 1
         b -= 1 
+        if c > L:
+            continue
         d[a][b] = c
         d[b][a] = c
 
