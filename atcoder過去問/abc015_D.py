@@ -18,7 +18,6 @@ def cal_ans(N, W, K, dp, width, importance):
                     dp[j][k] = max(dp[j][k],
                                    dp[j - width[i - 1]][k - 1]
                                    + importance[i - 1])
-
     return dp[W][K]
 
 
