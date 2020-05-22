@@ -1,33 +1,32 @@
+import sys
+
+
 def main():
     N, K = map(int, input().split())
     list_ = []
     for i in range(N):
         a = int(input())
+        if a == 0:
+            print(N)
+            sys.exit()
         list_.append(a)
+    list_.append(10 ** 10)
 
     left = 0
     right = 0
-    count = 0
     now = list_[left]
     max_count = 0
-    while left >= 0 and right < N:
+    while left < N:
         if now <= K:
-            count += 1
-            max_count = max(max_count, count)
             right += 1
-            if right == N:
-                break
+            max_count = max(max_count, right - left)
             now *= list_[right]
-            if now == 0:
-                max_count = N
-                break
         else:
-            count -= 1
-            now /= list_[left]
+            now //= list_[left]
             left += 1
             if left > right:
                 right = left
-                now = 1
+                now = list_[left]
     print(max_count)
 
 
