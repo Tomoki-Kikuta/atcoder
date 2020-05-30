@@ -11,23 +11,18 @@ def main():
         s = A[i]
         for j in range(N):
             f = B[j]
+            if s > f:
+                s, f = f, s
             count = 0
             for k in range(N):
                 u, v = A[k], B[k]
                 if u > v:
                     u, v = v, u
-                if u <= s and v <= s:
-                    count += abs(f - s) + abs(s - u) * 2
-                elif u <= s and s <= v and v <= f:
-                    count += abs(s - u) * 2 + abs(f - s)
-                elif u <= s and f < v:
-                    count += abs(s - u) * 2 + abs(f - s) + abs(v - f) * 2
-                elif s <= u and u <= f and s <= v and v <= f:
-                    count += abs(f - s)
-                elif s <= u and u <= f and f <= v:
-                    count += abs(f - s) + abs(v - f) * 2
-                else:
-                    count += abs(f - s) + abs(v - f) * 2
+                count += f - s
+                if u < s:
+                    count += (s - u) * 2
+                if f < v:
+                    count += (v - f) * 2
             ans = min(ans, count)
     print(ans)
 
