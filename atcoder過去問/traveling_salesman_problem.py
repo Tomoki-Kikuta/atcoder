@@ -29,10 +29,6 @@ def main():
         print(-1)
     else:
         print(dp[0][0])
-    
-    
-
-
 
 
 if __name__ == '__main__':
